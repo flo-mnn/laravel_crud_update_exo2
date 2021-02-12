@@ -53,8 +53,13 @@ class MemberController extends Controller
         return redirect('/member/show/'.$update->id);
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
+        
         if ($id==="all") {
+
+            // Membre::truncate();
+
             Member::whereNotNull('id')->delete();
         } else {
             $destroy = Member::find($id);
